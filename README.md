@@ -12,6 +12,16 @@ Moodle course format that shows the course as numbered day sections (Day 1, Day 
 1. Place this plugin in `course/format/daysections`
 2. Visit **Site administration → Notifications** to finish install
 3. Set a course’s format to **Day sections**
+4. If you have several courses and you want to convert them all to `daysections`:
+   ```bash
+   # list course formats
+   sudo mariadb moodle -e "SELECT id, shortname, format FROM mdl_course WHERE id != 1 ORDER BY id;"
+   ```
+
+   ```bash
+   # convert all courses to `daysections`
+   sudo mariadb moodle -e "UPDATE mdl_course SET format='daysections' WHERE id != 1;"
+   ```
 
 ## Features
 
