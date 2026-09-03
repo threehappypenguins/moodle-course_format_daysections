@@ -18,6 +18,8 @@ Moodle course format that shows the course as numbered day sections (Day 1, Day 
    sudo mariadb moodle -e "SELECT id, shortname, format FROM mdl_course WHERE id != 1 ORDER BY id;"
    ```
 
+   *Note*: If you have hidden courses, you will need to unhide and hide them again in order for them to be hidden correctly.
+
    ```bash
    # convert all courses to `daysections`
    sudo mariadb moodle -e "UPDATE mdl_course SET format='daysections' WHERE id != 1;"
